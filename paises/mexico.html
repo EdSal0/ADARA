@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>México</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+/* RESET Y ESTILO GENERAL */
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #333a44; /* Gris oscuro para texto */
+      background: #f5f7fa; /* blanco grisáceo */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    /* Fondo con ondas animadas */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(135deg, #e8ebf0, #f5f7fa);
+      z-index: -2;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      bottom: 0; left: 0; right: 0;
+      height: 180px;
+      background: url('data:image/svg+xml;utf8,\
+      <svg width="100%" height="180" viewBox="0 0 1440 320" xmlns="http://www.w3.org/2000/svg">\
+        <path fill="%23001f5b" fill-opacity="0.15" d="M0,96L48,117.3C96,139,192,181,288,186.7C384,192,480,160,576,149.3C672,139,768,149,864,165.3C960,181,1056,203,1152,202.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z">\
+          <animate attributeName="d" dur="10s" repeatCount="indefinite"\
+          values="M0,96L48,117.3C96,139,192,181,288,186.7C384,192,480,160,576,149.3C672,139,768,149,864,165.3C960,181,1056,203,1152,202.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z;\
+                  M0,80L48,96C96,112,192,144,288,165.3C384,187,480,197,576,181.3C672,165,768,123,864,117.3C960,112,1056,144,1152,154.7C1248,165,1344,155,1392,149.3L1440,144L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z;\
+                  M0,96L48,117.3C96,139,192,181,288,186.7C384,192,480,160,576,149.3C672,139,768,149,864,165.3C960,181,1056,203,1152,202.7C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />\
+        </path>\
+      </svg>') no-repeat bottom center;
+      background-size: cover;
+      z-index: -1;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      height: 50px;
+      background: #001f5bcc; /* semitransparente azul oscuro */
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 20px;
+      box-shadow: 0 2px 5px #000a3b88;
+      z-index: 1000;
+      gap: 12px;
+      color: #e0e7ff;
+    }
+    #logo {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #e0e7ff;
+      user-select: none;
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #logo img {
+      width: 28px;
+      height: 28px;
+      user-select: none;
+      filter: drop-shadow(0 0 3px #4761a3);
+    }
+    #logo:hover {
+      text-decoration: underline;
+    }
+    #controls {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-grow: 1;
+      justify-content: flex-end;
+      position: relative;
+    }
+    #ubicacionBtn, #mundoBtn {
+      background: none;
+      border: none;
+      color: #c3cdfd;
+      font-size: 1em;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-weight: 600;
+      user-select: none;
+      position: relative;
+      padding: 6px 12px;
+      border-radius: 12px;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 0 6px #001f5baa;
+    }
+    #ubicacionBtn img {
+      width: 20px;
+      height: 20px;
+      user-select: none;
+      filter: drop-shadow(0 0 2px #001f5b99);
+    }
+    #ubicacionBtn:hover, #mundoBtn:hover {
+      background-color: #002b85cc;
+      text-decoration: none;
+      box-shadow: 0 0 14px #003aaf;
+      color: #e0e7ff;
+    }
+    #menuPaises {
+      position: absolute;
+      top: 40px;
+      right: 0;
+      background: #001f5bcc;
+      color: #e0e7ff;
+      border-radius: 6px;
+      max-height: 200px;
+      overflow-y: auto;
+      box-shadow: 0 2px 10px #001435cc;
+      display: none;
+      width: 160px;
+      z-index: 2000;
+    }
+    #menuPaises button {
+      width: 100%;
+      padding: 8px 10px;
+      background: none;
+      border: none;
+      text-align: left;
+      cursor: pointer;
+      font-weight: 600;
+      color: #b6c3ff;
+      transition: background-color 0.25s ease;
+    }
+    #menuPaises button:hover {
+      background: #003080ff;
+    }
+
+    img {
+      display: block;
+      margin: 10px auto;
+      max-width: 100%;
+      height: auto;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    iframe {
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .mapa-container {
+      display: flex;
+      justify-content: center;
+      margin: 30px auto;
+    }
+        main {
+      margin-top: 70px;
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      flex-grow: 1;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    h1, h2, h3, h4 {
+      text-align: center;
+      color: #000a3b;
+    }
+
+    p {
+      text-align: justify;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+      padding: 0 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+  <button id="logo" title="Ir a inicio" aria-label="Ir a inicio" onclick="window.location.href='index.html'">
+    <img src="https://github.com/EdSal0/images/raw/c2e10e2a5f9b40257387fc1b7865b16ce2395c45/logo.ico" alt="Logo" />
+    ADARA
+  </button>
+  <div id="controls">
+
+    <div style="position: relative;">
+<button id="mundoBtn" title="Seleccionar país">
+      <span class="icon">🌐</span>
+      País
+    </button>
+    <div id="mensajeTuristicoHeader" title="Haz clic para ver más"></div>
+    <div id="menuPaises"></div>
+  </div>
+  </header>
+
+  <main>
+    <h1>MÉXICO</h1>
+    <p>
+      México es un destino turístico que cuenta con una gran diversidad de recursos naturales, enorme riqueza cultural e histórica, reconocida gastronomía a nivel mundial, privilegiada ubicación geográfica y clima excepcional, situación que lo posiciona como un destino atractivo.
+      El país se encuentra posicionado en primer lugar en el continente americano y en sexto a nivel mundial en número de sitios declarados Patrimonio de la Humanidad por parte de la UNESCO. La gastronomía mexicana fue también distinguida como Patrimonio Inmaterial de la Humanidad.
+    </p>
+
+    <h2>MONUMENTOS</h2>
+    <p>México cuenta con una gran riqueza cultural y arquitectónica representada en sus monumentos históricos. A continuación, algunos de los más emblemáticos:</p>
+    <h3 id="angel-independencia">Ángel de la Independencia – Ciudad de México</h3>
+<span style="display: none;">Latitud: 19.4270, Longitud: -99.1677</span>
+<img src="https://www.escapadah.com/u/fotografias/m/2024/7/17/f768x1-43805_43932_5050.jpg" alt="Ángel de la Independencia" width="150" />
+<h4>¿Qué es?</h4>
+<p>El <strong>Ángel de la Independencia</strong> (o simplemente "El Ángel") es un monumento icónico ubicado sobre Paseo de la Reforma en la Ciudad de México. Fue inaugurado en 1910 para conmemorar el centenario de la independencia de México.</p>
+
+<h4>¿Dónde está?</h4>
+<p>Dirección: Paseo de la Reforma, entre las calles Río Tíber y Florencia, Colonia Juárez, CDMX.<br />
+Cerca de estaciones de metro como "Insurgentes" y "Sevilla".</p>
+
+<h4>¿Qué puedes hacer ahí?</h4>
+<p><strong>Admira el monumento</strong>: El Ángel mide alrededor de 36 metros de altura, coronado por una figura dorada que representa a la Victoria Alada.<br />
+<strong>Fotos y selfies</strong>: Es uno de los puntos más populares para tomar fotos en CDMX.<br />
+<strong>Paseo por Reforma</strong>: Puedes caminar por una de las avenidas más emblemáticas y modernas, rodeada de edificios, museos, y cafés.<br />
+<strong>Eventos y manifestaciones</strong>: Es un punto frecuente para marchas, celebraciones y eventos públicos.<br />
+<strong>Subida guiada</strong>: El monumento tiene una escalera interior que lleva a la base de la estatua, pero solo se puede visitar con permiso especial y en horarios limitados.</p>
+
+<h4>Horario de visita</h4>
+<p>El monumento en sí es visible las 24 horas, pero la subida o visitas guiadas deben reservarse con anticipación a través de las autoridades locales o de turismo.</p>
+
+<h4>Guía de Cuidado y Respeto al Ángel de la Independencia</h4>
+<p>El Ángel es un patrimonio histórico y cultural, y es responsabilidad de todos cuidarlo para que siga siendo un símbolo orgulloso de México.</p>
+
+<h4>Reglas y consejos:</h4>
+<p>1. <strong>No escalar ni dañar</strong> el monumento.<br />
+2. <strong>No pintar grafitis</strong> ni pegar carteles en el Ángel ni en sus alrededores.<br />
+3. <strong>No dejar basura</strong>; usa los botes de basura que hay en el área.<br />
+4. <strong>Respetar las áreas verdes</strong> alrededor, no pisar jardines ni cortar plantas.<br />
+5. <strong>Evitar vandalismo y actos violentos</strong>, especialmente en manifestaciones.<br />
+6. <strong>Cuidar el mobiliario urbano</strong>: bancas, fuentes y postes que forman parte del entorno.<br />
+7. Si quieres apoyar la conservación, <strong>participa en campañas de limpieza o difusión</strong> de su importancia.<br />
+8. <strong>No fumar ni consumir alcohol</strong> directamente en el monumento.<br />
+9. <strong>Mantener distancia</strong> con monumentos y esculturas para evitar deterioro accidental.<br />
+10. <strong>Reportar cualquier daño o acto sospechoso</strong> a las autoridades locales o al INAH (Instituto Nacional de Antropología e Historia).</p>
+
+<div class="mapa-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.4640932145663!2d-99.17025918465488!3d19.427025086887875!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff3d6b9e77c1%3A0x8db2e8260b5b3c6e!2sEl%20%C3%81ngel%20de%20la%20Independencia!5e0!3m2!1ses-419!2smx!4v1687379997770!5m2!1ses-419!2smx"
+    width="600"
+    height="400"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<h3 id="monumento-revolucion">Monumento a la Revolución – Ciudad de México</h3>
+<span style="display: none;">Latitud: 19.4359, Longitud: -99.1861</span>
+<img src="https://i0.wp.com/historico.alcaldiacuauhtemoc.mx/wp-content/uploads/2018/09/Imagen-destacada-Monumento-a-la-Revolucio%CC%81n.jpg?fit=528%2C453&ssl=1" alt="Monumento a la Revolución" width="500" />
+<h4>¿Qué es?</h4>
+<p>El <strong>Monumento a la Revolución</strong> es un majestuoso edificio que conmemora la Revolución Mexicana. Originalmente planeado como un Palacio Legislativo, se convirtió en un monumento emblemático y es uno de los más grandes de la Ciudad de México.</p>
+
+<h4>¿Dónde está?</h4>
+<p>Ubicación: Plaza de la República, entre las calles de Balderas y Circuito Interior, Colonia Tabacalera, CDMX.<br />
+Cercano a estaciones de metro “Revolución” y “Bellas Artes”.</p>
+
+<h4>¿Qué puedes hacer ahí?</h4>
+<p><strong>Subir a la cúpula</strong>: Cuenta con un mirador panorámico a 65 metros de altura, al que se accede mediante un elevador.<br />
+<strong>Visitar el museo</strong>: En su interior hay un museo dedicado a la Revolución Mexicana.<br />
+<strong>Explorar la plaza</strong>: La plaza alrededor es un espacio público para eventos, conciertos y manifestaciones.<br />
+<strong>Admira la arquitectura</strong>: Su estilo combina Art Nouveau con Art Decó, y su estructura metálica fue diseñada originalmente para un Palacio Legislativo por Eiffel.</p>
+
+<h4>Horario de visita</h4>
+<p>Generalmente abierto de martes a domingo, de 10:00 a 18:00 horas. Es recomendable <a target="_blank" href="https://mexicocity.cdmx.gob.mx/venues/monument-to-the-revolution/?lang=es">revisar horarios oficiales antes de visitar.</a></p>
+
+<h4>Guía de Cuidado y Respeto al Monumento a la Revolución</h4>
+<p>Este monumento es un patrimonio histórico nacional, y su cuidado depende del respeto de todos.</p>
+
+<h4>Reglas y consejos:</h4>
+<p>1. <strong>No dañar ni rayar</strong> las paredes o esculturas.<br />
+2. <strong>No subir</strong> a áreas restringidas.<br />
+3. <strong>No arrojar basura</strong>, utiliza los botes disponibles.<br />
+4. <strong>Respetar las indicaciones del personal</strong> y seguridad.<br />
+5. <strong>No fumar</strong> dentro del recinto.<br />
+6. <strong>Evitar actos vandálicos o de desorden</strong> en el área.<br />
+7. <strong>Preservar el mobiliario urbano</strong> y las áreas verdes.<br />
+8. <strong>Respetar a otros visitantes</strong> para que todos disfruten la experiencia.<br />
+9. <strong>Reportar cualquier daño o comportamiento sospechoso</strong> a las autoridades o custodios.</p>
+
+<div class="mapa-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d30099.645759196625!2d-99.18609617989988!3d19.435908988001806!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1f8d24522071f%3A0x20fdc6dd3dcc0c20!2sMonumento%20a%20la%20Revoluci%C3%B3n!5e0!3m2!1ses!2smx!4v1751719070869!5m2!1ses!2smx"
+    width="600"
+    height="400"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<h3 id="piramides-teotihuacan">Pirámides de Teotihuacán – Estado de México</h3>
+<span style="display: none;">Latitud: 19.6925, Longitud: -98.8438</span>
+<img src="https://tvazteca.brightspotcdn.com/9b/bb/c21bcce443a4a7bad262272b2da1/equinoccio-primavera-2023-turistas-piramides-teotihuacan.jpeg" alt="Pirámides de Teotihuacán" width="500" />
+<h4>¿Qué es?</h4>
+<p>Las <strong>Pirámides de Teotihuacán</strong> son una de las zonas arqueológicas más importantes y visitadas de México. Destacan la Pirámide del Sol y la Pirámide de la Luna, construidas por una civilización prehispánica desconocida.</p>
+
+<h4>¿Dónde está?</h4>
+<p>Ubicación: San Juan Teotihuacán, Estado de México.<br />
+A aproximadamente 50 km al noreste de la Ciudad de México.</p>
+
+<h4>¿Qué puedes hacer ahí?</h4>
+<p><strong>Explorar la Calzada de los Muertos</strong>: La avenida principal que conecta las principales estructuras.<br />
+<strong>Visitar el Museo de Sitio</strong>: Exhibiciones sobre la historia y cultura teotihuacana.<br />
+<strong>Comprar artesanías</strong>: En los puestos de los alrededores.</p>
+
+<h4>Horario de visita</h4>
+<p>Abierto todos los días de 9:00 a 17:00 horas.</p>
+
+<h4>Guía de Cuidado y Respeto a las Pirámides</h4>
+<p>Zona arqueológica protegida por el INAH, es vital respetar las reglas para conservar este patrimonio.</p>
+
+<h4>Reglas y consejos:</h4>
+<p>1. <strong>No escalar áreas prohibidas</strong> para evitar daños.<br />
+2. <strong>No dañar o tomar fragmentos</strong> de las estructuras.<br />
+3. <strong>No dejar basura</strong> y utilizar los recipientes disponibles.<br />
+4. <strong>No fumar</strong> dentro del sitio arqueológico.<br />
+5. <strong>Respetar la señalización</strong> y las indicaciones del personal.<br />
+6. <strong>No hacer grafitis</strong> o marcas.<br />
+7. <strong>Evitar ruidos fuertes</strong> para conservar la paz del lugar.<br />
+8. <strong>Reportar cualquier daño o actividad sospechosa</strong> a las autoridades.</p>
+
+<div class="mapa-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3762.323378060988!2d-98.84832598465406!3d19.69252808687482!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d200b18939f965%3A0xc41b7581fdf0c854!2sZona%20Arqueol%C3%B3gica%20de%20Teotihuac%C3%A1n!5e0!3m2!1ses-419!2smx!4v1687381234567!5m2!1ses-419!2smx"
+    width="600"
+    height="400"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<h3 id="catedral-metropolitana">Catedral Metropolitana – Ciudad de México</h3>
+<span style="display: none;">Latitud: 19.4342, Longitud: -99.1332</span>
+<img src="https://visitmexico.com/media/usercontent/67fd35ff7bf1e-Exterior-Mexico-City-Metropolitan-Cathedral_gmxdot_jpg" alt="Catedral Metropolitana" width="500" />
+<h4>¿Qué es?</h4>
+<p>La <strong>Catedral Metropolitana</strong> es la iglesia más grande y antigua de América Latina, ubicada en el corazón del Centro Histórico de la Ciudad de México.</p>
+
+<h4>¿Dónde está?</h4>
+<p>Plaza de la Constitución (Zócalo), Centro Histórico, CDMX.<br />
+Muy cerca de la estación de metro Zócalo.</p>
+
+<h4>¿Qué puedes hacer ahí?</h4>
+<p><strong>Visitar el templo</strong>: Admirar su arquitectura barroca y neoclásica.<br />
+<strong>Conocer el museo</strong>: Con exhibiciones de arte sacro y reliquias.<br />
+<strong>Participar en misas</strong>: Abierto para ceremonias religiosas.<br />
+<strong>Tomar fotografías</strong>: Del interior y exterior, respetando las reglas.</p>
+
+<h4>Horario de visita</h4>
+<p>Abierto todos los días de 8:00 a 20:00 horas.</p>
+
+<h4>Guía de Cuidado y Respeto a la Catedral Metropolitana</h4>
+<p>Es un lugar sagrado y patrimonio cultural, por lo que se debe mantener el respeto y cuidado.</p>
+
+<h4>Reglas y consejos:</h4>
+<p>1. <strong>Hablar en voz baja</strong> dentro del templo.<br />
+2. <strong>No tomar fotos con flash</strong> para proteger las obras.<br />
+3. <strong>No tocar</strong> las obras de arte o mobiliario.<br />
+4. <strong>Respetar las ceremonias religiosas</strong>.<br />
+5. <strong>No consumir alimentos ni bebidas</strong> dentro.<br />
+6. <strong>No fumar</strong> ni usar celulares en modo ruidoso.<br />
+7. <strong>Mantener limpias las áreas comunes</strong>.<br />
+8. <strong>Seguir las indicaciones del personal</strong>.</p>
+
+<div class="mapa-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.255932214185!2d-99.1340404846549!3d19.4342423868877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff5b7b53d36f%3A0x6c8c2e4e85c4ae77!2sCatedral%20Metropolitana%20de%20Ciudad%20de%20M%C3%A9xico!5e0!3m2!1ses-419!2smx!4v1687385678901!5m2!1ses-419!2smx"
+    width="600"
+    height="400"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+<h3 id="bellas-artes">Palacio de Bellas Artes – Ciudad de México</h3>
+<span style="display: none;">Latitud: 19.4351, Longitud: -99.1416</span>
+<img src="https://raw.githubusercontent.com/EdSal0/images/e9f889e06a4f70cc145e2471fee68b110cb7a4cb/bA.jpg" alt="Palacio de Bellas Artes" width="500" />
+
+<h4>¿Qué es?</h4>
+<p>El <strong>Palacio de Bellas Artes</strong> es un centro cultural y artístico emblemático de México, famoso por su arquitectura y sus murales de artistas como Diego Rivera y Rufino Tamayo.</p>
+
+<h4>¿Dónde está?</h4>
+<p>Av. Juárez, Centro Histórico, CDMX.<br />
+Cerca de la estación de metro Bellas Artes.</p>
+
+<h4>¿Qué puedes hacer ahí?</h4>
+<p><strong>Visitar exposiciones</strong>: De arte, fotografía y eventos culturales.<br />
+<strong>Asistir a conciertos y óperas</strong>: En su majestuoso auditorio.<br />
+<strong>Admira los murales</strong>: Obras de artistas mexicanos que adornan el interior.<br />
+<strong>Tomar fotos</strong>: De la fachada de mármol y la cúpula de vidrio.</p>
+
+<h4>Horario de visita</h4>
+<p>Abierto de martes a domingo, de 11:00 a 17:00 horas.</p>
+
+<h4>Guía de Cuidado y Respeto al Palacio de Bellas Artes</h4>
+<p>Es un espacio cultural, por lo que se debe mantener el respeto y cuidado del inmueble y las obras.</p>
+
+<h4>Reglas y consejos:</h4>
+<p>1. <strong>Hablar en voz baja</strong> durante presentaciones.<br />
+2. <strong>No tocar</strong> las obras de arte.<br />
+3. <strong>No usar flash</strong> al tomar fotos.<br />
+4. <strong>Respetar los horarios y accesos</strong>.<br />
+5. <strong>No consumir alimentos ni bebidas</strong> dentro.<br />
+6. <strong>Seguir indicaciones del personal</strong>.</p>
+
+<div class="mapa-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.2476754989357!2d-99.14204228465492!3d19.43507498688782!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff5a4907fbbf%3A0xf3f23ffbc2bfc4e7!2sPalacio%20de%20Bellas%20Artes!5e0!3m2!1ses-419!2smx!4v1687388901234!5m2!1ses-419!2smx"
+    width="600"
+    height="400"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<h3 id="castillo-chapultepec">Castillo de Chapultepec – Ciudad de México</h3>
+<span style="display: none;">Latitud: 19.4204, Longitud: -99.1817</span>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/Chapultepec_Castle_Mexico_City.webp/1200px-Chapultepec_Castle_Mexico_City.webp.png" alt="Castillo de Chapultepec" width="500" />
+<h4>¿Qué es?</h4>
+<p>El <strong>Castillo de Chapultepec</strong> es una histórica fortaleza ubicada en el Bosque de Chapultepec, que actualmente funciona como Museo Nacional de Historia.</p>
+
+<h4>¿Dónde está?</h4>
+<p>Bosque de Chapultepec, Primera Sección, CDMX.<br />
+Cerca de la estación de metro Chapultepec.</p>
+
+<h4>¿Qué puedes hacer ahí?</h4>
+<p><strong>Visitar el museo</strong>: Con colecciones de arte, mobiliario y objetos históricos.<br />
+<strong>Recorrer los jardines</strong>: Con vistas panorámicas de la ciudad.<br />
+<strong>Aprender historia</strong>: Sobre la independencia, revolución y México virreinal.<br />
+<strong>Tomar fotografías</strong>: Del castillo y sus alrededores.</p>
+
+<h4>Horario de visita</h4>
+<p>Abierto de martes a domingo, de 9:00 a 17:00 horas.</p>
+
+<h4>Guía de Cuidado y Respeto al Castillo de Chapultepec</h4>
+<p>Al ser un patrimonio histórico, es importante cuidar las instalaciones y respetar las normas.</p>
+
+<h4>Reglas y consejos:</h4>
+<p>1. <strong>No tocar las exhibiciones</strong>.<br />
+2. <strong>No fumar</strong> en las áreas interiores.<br />
+3. <strong>No ingresar con alimentos o bebidas</strong>.<br />
+4. <strong>Seguir los caminos y señalizaciones</strong>.<br />
+5. <strong>Respetar al personal y otros visitantes</strong>.<br />
+6. <strong>No usar flash en las salas de exhibición</strong>.</p>
+
+<div class="mapa-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.931354746369!2d-99.18449958465506!3d19.42043868688357!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff54c9d3c687%3A0x22c79809f6d2c8e5!2sCastillo%20de%20Chapultepec!5e0!3m2!1ses-419!2smx!4v1687390123456!5m2!1ses-419!2smx"
+    width="600"
+    height="400"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<h3 id="museo-antropologia">Museo Nacional de Antropología – Ciudad de México</h3>
+<span style="display: none;">Latitud: 19.4260, Longitud: -99.1860</span>
+<img src="https://cdn-3.expansion.mx/dims4/default/4f8765e/2147483647/strip/true/crop/659x462+0+0/resize/1200x841!/quality/90/?url=https%3A%2F%2Fcdn-3.expansion.mx%2Fc7%2Fc72b5c4b432954402ddca28f6c130a18%2Fparaguas-reinauguracion20180919125852.jpg" alt="Museo Nacional de Antropología" width="500" />
+<h4>¿Qué es?</h4>
+<p>El <strong>Museo Nacional de Antropología</strong> es uno de los museos más importantes de México, dedicado a la historia, cultura y civilizaciones prehispánicas mexicanas.</p>
+
+<h4>¿Dónde está?</h4>
+<p>Av. Paseo de la Reforma y Calzada Gandhi, Bosque de Chapultepec, CDMX.<br />
+Cerca de la estación de metro Auditorio.</p>
+
+<h4>¿Qué puedes hacer ahí?</h4>
+<p><strong>Explorar las salas</strong>: De arqueología, etnografía y antropología.<br />
+<strong>Ver la Piedra del Sol</strong>: Uno de los objetos más emblemáticos del museo.<br />
+<strong>Participar en talleres y actividades</strong>: Educativas y culturales.<br />
+<strong>Comprar artesanías</strong>: En la tienda del museo.</p>
+
+<h4>Horario de visita</h4>
+<p>Abierto de martes a domingo, de 9:00 a 19:00 horas.</p>
+
+<h4>Guía de Cuidado y Respeto al Museo Nacional de Antropología</h4>
+<p>Este museo protege valiosos objetos culturales, por lo que se deben respetar todas las normas de conservación.</p>
+
+<h4>Reglas y consejos:</h4>
+<p>1. <strong>No tocar</strong> las piezas exhibidas.<br />
+2. <strong>No usar flash</strong> en las salas.<br />
+3. <strong>Respetar los horarios</strong>.<br />
+4. <strong>No introducir alimentos ni bebidas</strong>.<br />
+5. <strong>Seguir indicaciones del personal</strong>.<br />
+6. <strong>Guardar silencio en las salas</strong>.</p>
+
+<div class="mapa-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.416027386456!2d-99.18734858465488!3d19.425994486885003!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff63ee2f84d9%3A0x7b5d85d618de7324!2sMuseo%20Nacional%20de%20Antropolog%C3%ADa!5e0!3m2!1ses-419!2smx!4v1687391345678!5m2!1ses-419!2smx"
+    width="600"
+    height="400"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+<h3 id="parque-chapultepec">Parque Chapultepec – Ciudad de México</h3>
+<span style="display: none;">Latitud: 19.4203, Longitud: -99.1819</span>
+<img src="https://i0.wp.com/godinchilango.mx/wp-content/uploads/2024/09/puerta-de-los-leones-chapultepec-ciudad-mexico-cdmx_3.jpg?resize=750%2C400&ssl=1" alt="Parque Chapultepec" width="500" />
+<h4>¿Qué es?</h4>
+<p>El <strong>Parque Chapultepec</strong> es uno de los parques urbanos más grandes del mundo, un pulmón verde de la Ciudad de México que alberga museos, lagos, zoológicos y áreas recreativas.</p>
+
+<h4>¿Dónde está?</h4>
+<p>Bosque de Chapultepec, CDMX.<br />
+Accesible por las estaciones de metro Chapultepec, Juanacatlán, y Auditorio.</p>
+
+<h4>¿Qué puedes hacer ahí?</h4>
+<p><strong>Visitar el Zoológico de Chapultepec</strong>: Con más de 200 especies.<br />
+<strong>Explorar museos</strong>: Como el Museo de Arte Moderno y Museo Tamayo.<br />
+<strong>Pasear en bote</strong>: En los lagos del parque.<br />
+<strong>Hacer picnic</strong>: En las áreas verdes designadas.<br />
+<strong>Practicar deporte</strong>: Hay áreas para correr, andar en bicicleta y patinar.</p>
+
+<h4>Horario de visita</h4>
+<p>Abierto diariamente de 5:00 a 18:00 horas.</p>
+
+<h4>Guía de Cuidado y Respeto al Parque Chapultepec</h4>
+<p>Para conservar este espacio natural dentro de la ciudad, es fundamental respetar las normas y cuidar la flora y fauna.</p>
+
+<h4>Reglas y consejos:</h4>
+<p>1. <strong>No tirar basura</strong> y utilizar los botes designados.<br />
+2. <strong>No alimentar a los animales</strong> del zoológico.<br />
+3. <strong>Respetar las áreas verdes y no cortar plantas</strong>.<br />
+4. <strong>No hacer fuego ni consumir alcohol</strong>.<br />
+5. <strong>Seguir los senderos y señalización</strong>.<br />
+6. <strong>Respetar a otros visitantes</strong> y mantener el orden.<br />
+7. <strong>Reportar cualquier daño o actividad sospechosa</strong>.</p>
+
+<div class="mapa-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.934504665844!2d-99.18459848465506!3d19.42032708688387!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff54cbd04041%3A0x5206ec60b46b71e2!2sBosque%20de%20Chapultepec!5e0!3m2!1ses-419!2smx!4v1687393456789!5m2!1ses-419!2smx"
+    width="600"
+    height="400"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<h3 id="museo-frida">Museo Frida Kahlo (Casa Azul) – Ciudad de México</h3>
+<span style="display: none;">Latitud: 19.3556, Longitud: -99.1626</span>
+<img src="https://www.dondeir.com/wp-content/uploads/2023/07/museo-frida-kahlo-1.jpg" alt="Museo Frida Kahlo" width="500" />
+<h4>¿Qué es?</h4>
+<p>La <strong>Casa Azul</strong> fue el hogar de la famosa pintora mexicana Frida Kahlo y ahora funciona como museo dedicado a su vida y obra.</p>
+
+<h4>¿Dónde está?</h4>
+<p>Coyoacán, CDMX.<br />
+Cerca de la estación de metro Coyoacán y varias rutas de transporte público.</p>
+
+<h4>¿Qué puedes hacer ahí?</h4>
+<p><strong>Recorrer la casa y jardines</strong>: Donde vivió y creó muchas de sus obras.<br />
+<strong>Ver exposiciones</strong>: De arte contemporáneo y fotografía.<br />
+<strong>Conocer objetos personales</strong>: Cartas, ropa, y pinturas originales.<br />
+<strong>Tomar fotos</strong>: En los patios coloridos y murales.</p>
+
+<h4>Horario de visita</h4>
+<p>De martes a domingo, de 10:00 a 17:45 horas. Es recomendable comprar boletos con anticipación.</p>
+
+<h4>Guía de Cuidado y Respeto al Museo Frida Kahlo</h4>
+<p>Se debe respetar la propiedad privada y las normas para preservar la historia de la artista.</p>
+
+<h4>Reglas y consejos:</h4>
+<p>1. <strong>No tocar</strong> las obras y objetos.<br />
+2. <strong>No usar flash</strong> en la fotografía.<br />
+3. <strong>Evitar ruidos fuertes</strong>.<br />
+4. <strong>No ingresar con alimentos ni bebidas</strong>.<br />
+5. <strong>Seguir las indicaciones del personal</strong>.</p>
+
+<div class="mapa-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3761.469748472803!2d-99.16477968465494!3d19.35560368688955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d20135a0d580a9%3A0x8f5127b598c8ff74!2sMuseo%20Frida%20Kahlo!5e0!3m2!1ses-419!2smx!4v1687394567890!5m2!1ses-419!2smx"
+    width="600"
+    height="400"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+
+<h3 id="torre-latino">Torre Latinoamericana – Ciudad de México</h3>
+<span style="display: none;">Latitud: 19.4333, Longitud: -99.1403</span>
+<img src="https://i.pinimg.com/736x/b4/5c/46/b45c463af10aa2778ff06dda70d9b143.jpg" alt="Torre Latinoamericana" width="500" />
+<h4>¿Qué es?</h4>
+<p>La <strong>Torre Latinoamericana</strong> es uno de los rascacielos más emblemáticos de México, con un mirador que ofrece vistas panorámicas espectaculares de la ciudad.</p>
+
+<h4>¿Dónde está?</h4>
+<p>Calle Eje Central Lázaro Cárdenas 2, Centro Histórico, CDMX.<br />
+Muy cerca del Metro Bellas Artes.</p>
+
+<h4>¿Qué puedes hacer ahí?</h4>
+<p><strong>Subir al mirador</strong>: Para disfrutar vistas 360° de CDMX.<br />
+<strong>Visitar exposiciones temporales</strong>: En el lobby y áreas culturales.<br />
+<strong>Tomar fotografías</strong>: Del paisaje urbano y atardeceres.<br />
+<strong>Comprar souvenirs</strong>: En la tienda de regalos.</p>
+
+<h4>Horario de visita</h4>
+<p>De lunes a domingo, de 9:00 a 20:00 horas.</p>
+
+<h4>Guía de Cuidado y Respeto a la Torre Latinoamericana</h4>
+<p>Es un edificio histórico y cultural, por lo que es importante respetar sus normas y espacios.</p>
+
+<h4>Reglas y consejos:</h4>
+<p>1. <strong>No correr ni empujar</strong> dentro del edificio.<br />
+2. <strong>Respetar las indicaciones del personal</strong>.<br />
+3. <strong>No fumar</strong> en las instalaciones.<br />
+4. <strong>No consumir alimentos</strong> en áreas restringidas.<br />
+5. <strong>Cuidar el mobiliario y estructuras</strong>.<br />
+6. <strong>Mantener orden para evitar aglomeraciones</strong>.</p>
+
+<div class="mapa-container">
+  <iframe
+    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3763.2521052991453!2d-99.14227458465496!3d19.433278786887694!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x85d1ff57b5950b7f%3A0x4b67d6f5f3d09d6a!2sTorre%20Latinoamericana!5e0!3m2!1ses-419!2smx!4v1687395678901!5m2!1ses-419!2smx"
+    width="600"
+    height="400"
+    loading="lazy"
+    allowfullscreen
+  ></iframe>
+</div>
+
+    
+  </main>
+
+  <script>
+    // Mostrar menú de países al hacer clic en botón mundo
+  mundoBtn.addEventListener('click', () => {
+    if (menuPaises.style.display === 'block') {
+      menuPaises.style.display = 'none';
+    } else {
+      mostrarMenuPaises();
+      menuPaises.style.display = 'block';
+    }
+  });
+
+  // Cerrar menú si se hace clic afuera
+  document.addEventListener('click', (e) => {
+    if (!mundoBtn.contains(e.target) && !menuPaises.contains(e.target)) {
+      menuPaises.style.display = 'none';
+    }
+  });
+
+  // Lista de países con enlaces y anclas (ejemplo)
+  const paises = [
+    { nombre: 'México', url: '/mexico.html' },
+    { nombre: 'Estados Unidos', url: 'paises/usa.html' },
+    { nombre: 'Canadá', url: 'paises/canada.html' },
+    { nombre: 'Brasil', url: 'paises/brasil.html' },
+    { nombre: 'Argentina', url: 'paises/argentina.html' },
+  ];
+
+  function mostrarMenuPaises() {
+    menuPaises.innerHTML = '';
+    paises.forEach(pais => {
+      const btn = document.createElement('button');
+      btn.textContent = pais.nombre;
+      btn.addEventListener('click', () => {
+        window.location.href = pais.url;
+      });
+      menuPaises.appendChild(btn);
+    });
+     }
+  </script>
+
+</body>
+</html>
