@@ -1,0 +1,196 @@
+/* Reset general */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #000;
+  color: #1e90ff; /* azul rey */
+  font-family: 'Orbitron', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #111;
+    color:#111 ;
+    overflow-x: hidden;
+  }
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(135deg, #242424, #000000);
+  z-index: -2;
+}
+
+/* Ondas */
+body::after {
+  content: "";
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  z-index: -1;
+  background: url("assets/ondas.svg") bottom center no-repeat;
+  background-size: cover;
+}
+
+
+#logo {
+      font-weight: bold;
+      font-size: 1.2em;
+      color: #e0e7ff;
+      user-select: none;
+      flex-shrink: 0;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: inherit;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    #logo img {
+      width: 50px;
+      height:50px;
+      user-select: none;
+      filter: drop-shadow(0 0 3px #4761a3);
+    }
+    #logo:hover {
+      text-decoration: underline;
+    }
+/* ==== ICONOS MÁS PEQUEÑOS ==== */
+    .futuristic-menu img {
+      width: 20px;
+      height: 20px;
+      object-fit: contain;
+    }
+/* Barra futurista */
+.futuristic-menu {
+  display: flex;
+  gap: 20px;
+  padding: 15px;
+  background: #000;
+
+  justify-content: center;
+}
+
+.futuristic-menu button {
+  background: transparent;
+  border: 2px solid #1e90ff;
+  color: #1e90ff;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+.futuristic-menu button::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(30,144,255,0.4), transparent 70%);
+  transform: scale(0);
+  transition: transform 0.4s ease;
+}
+
+.futuristic-menu button:hover::after {
+  transform: scale(1);
+}
+
+
+.futuristic-menu button:hover {
+  background: #1e90ff;
+  color: black;
+  box-shadow: 0 0 15px #1e90ff;
+}
+
+/* Dropdown Países */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 120%;
+  left: 0;
+  background: #000;
+  border: 2px solid #1e90ff;
+  min-width: 150px;
+  z-index: 100;
+}
+
+.dropdown-content button {
+  display: block;
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  padding: 10px;
+  color: #1e90ff;
+  cursor: pointer;
+}
+
+.dropdown-content button:hover {
+  background: #1e90ff;
+  color: black;
+}
+
+/* Textos principales */
+h1, h2, p {
+  margin: 15px 0;
+  text-align: center;
+}
+
+h1 {
+  font-size: 2.5rem;
+  color: #fff;
+}
+
+h2 {
+  font-size: 1.8rem;
+  color: #001f5b; /* acento */
+  text-align: center;
+}
+h3{
+  text-align: center;
+  color: #1e90ff;
+}
+h4{
+  text-align: center;
+}
+p {
+  font-size: 1rem;
+  color: #ddd;
+  max-width: 800px;
+  margin: auto;
+}
+img {
+  display: block;
+  margin: 20px auto;
+  max-width: 90%;
+  height: auto;
+  object-fit: cover;
+}
+
+.mapa-container{
+    display: block;          
+  margin: 20px auto;       
+  width: 500px;            
+  height: 350px;           
+  object-fit: cover;  
+}

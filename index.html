@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="https://github.com/EdSal0/images/raw/c2e10e2a5f9b40257387fc1b7865b16ce2395c45/logo.ico" />
+  <link rel="stylesheet" href="style.css">
+  <title>ADARA</title>
+</head>
+<body>
+  <!-- Loader minimalista -->
+  <div id="loader">
+    Cargando ADARA
+    <div id="progress-bar"><div></div></div>
+    <span>Por favor espera...</span>
+  </div>
+
+  <!-- Barra de navegación futurista -->
+  <header>
+    <button id="logo" title="Ir a inicio" aria-label="Ir a inicio" onclick="window.location.href='index.html'">
+    <img src="https://github.com/EdSal0/images/raw/c2e10e2a5f9b40257387fc1b7865b16ce2395c45/logo.ico" alt="Logo" />
+    ADARA
+  </button>
+    <nav class="futuristic-menu">
+      <button id="ubicacionBtn" title="Mostrar sitio turístico cercano">
+        <img src="https://github.com/EdSal0/images/raw/c2e10e2a5f9b40257387fc1b7865b16ce2395c45/ubi.ico" alt="Ubicación" />
+        Mostrar sitio cercano
+      </button>
+
+      <div class="dropdown">
+        <button id="mundoBtn" title="Seleccionar país">
+          🌐 País
+        </button>
+        <div id="menuPaises" class="dropdown-content"></div>
+      </div>
+
+      <div id="mensajeTuristicoHeader" title="Haz clic para ver más"></div>
+    </nav>
+  </header>
+
+  <main>
+    <h1>ADARA. TU BUSCADOR DE LUGARES FAVORITO</h1>
+    <div class="carrusel">
+      <img id="imagenActual" class="imagen-activa" src="" alt="Imagen" />
+      <button class="boton" id="prev">&#9664;</button>
+      <button class="boton" id="next">&#9654;</button>
+    </div>
+  </main>
+
+<script>
+  const imagenActual = document.getElementById('imagenActual');
+  const prevBtn = document.getElementById('prev');
+  const nextBtn = document.getElementById('next');
+  const ubicacionBtn = document.getElementById('ubicacionBtn');
+  const mensajeTuristicoHeader = document.getElementById('mensajeTuristicoHeader');
+  const mundoBtn = document.getElementById('mundoBtn');
+  const menuPaises = document.getElementById('menuPaises');
+  const loader = document.getElementById('loader');
+
+  // Array con las diapositivas
+  const slides = [
+    // MEXICO
+    {
+      src: 'https://www.travelreport.mx/wp-content/uploads/2019/10/curiosidades-del-angel-de-la-independencia-portada.jpg',
+      alt: 'Ángel de la Independencia',
+      pais: 'México',
+      url: 'paises/mexico.html',
+      ancla: 'angel-independencia',
+      onClick: function () {
+        window.location.href = `${this.url}#${this.ancla}`;
+      }
+    },
+    {
+      src: 'https://i0.wp.com/historico.alcaldiacuauhtemoc.mx/wp-content/uploads/2018/09/Imagen-destacada-Monumento-a-la-Revolucio%CC%81n.jpg?fit=528%2C453&ssl=1',
+      alt: 'Monumento a la Revolución',
+      pais: 'México',
+      url: 'paises/mexico.html',
+      ancla: 'monumento-revolucion',
+      onClick: function () {
+        window.location.href = `${this.url}#${this.ancla}`;
+      }
+    },
+    {
+      src: 'https://tvazteca.brightspotcdn.com/9b/bb/c21bcce443a4a7bad262272b2da1/equinoccio-primavera-2023-turistas-piramides-teotihuacan.jpeg',
+      alt: 'Pirámides de Teotihuacán',
+      pais: 'México',
+      url: 'paises/mexico.html',
+      ancla: 'piramides-teotihuacan',
+      onClick: function () {
+        window.location.href = `${this.url}#${this.ancla}`;
+      }
+    },
+    {
+      src: 'https://visitmexico.com/media/usercontent/67fd35ff7bf1e-Exterior-Mexico-City-Metropolitan-Cathedral_gmxdot_jpg',
+      alt: 'Catedral Metropolitana',
+      pais: 'México',
+      url: 'paises/mexico.html',
+      ancla: 'catedral-metropolitana',
+      onClick: function () {
+        window.location.href = `${this.url}#${this.ancla}`;
+      }
+    },
+    {
+      src: 'https://media.timeout.com/images/105504045/750/422/image.jpg',
+      alt: 'Palacio de Bellas Artes',
+      pais: 'México',
+      url: 'paises/mexico.html',
+      ancla: 'bellas-artes',
+      onClick: function () {
+        window.location.href = `${this.url}#${this.ancla}`;
+      }
+    },
+    // FRANCE
+    { 
+      src: 'https://supercurioso.com/wp-content/uploads/2017/12/Por-qu%C3%A9-es-ilegal-tomar-fotos-de-la-Torre-Eiffel-de-noche-e1513453360874.jpg',
+      alt: 'Torre Eiffel',
+      pais: 'Francia',
+      url: 'paises/french.html',
+      ancla: 'torre-eiffel',
+      onClick: function () {
+        window.location.href = `${this.url}#${this.ancla}`;
+      }
+    },
+    { 
+      src: 'https://e00-elmundo.uecdn.es/assets/multimedia/imagenes/2024/11/08/17310678297734.jpg',
+      alt: 'Museo del Louvre',
+      pais: 'Francia',
+      url: 'paises/french.html',
+      ancla: 'louvre',
+      onClick: function () {
+        window.location.href = `${this.url}#${this.ancla}`;
+      }
+    }
+    // Puedes seguir agregando Argentina y demás
+  ];
+
+  const sitiosTuristicos = [
+    { nombre: 'Catedral Metropolitana de Ciudad de México', lat: 19.4326, lon: -99.1332, url: 'paises/mexico.html', ancla: 'catedral-metropolitana' },
+    { nombre: 'Museo Nacional de Antropología', lat: 19.4260, lon: -99.1860, url: 'paises/mexico.html', ancla: 'museo-antropologia' },
+    { nombre: 'Castillo de Chapultepec', lat: 19.4204, lon: -99.1819, url: 'paises/mexico.html', ancla: 'castillo-chapultepec' },
+    { nombre: 'Pirámides de Teotihuacán', lat: 19.6925, lon: -98.8438, url: 'paises/mexico.html', ancla: 'piramides-teotihuacan' },
+    { nombre: 'Parque Chapultepec', lat: 19.4200, lon: -99.1830, url: 'paises/mexico.html', ancla: 'parque-chapultepec' },
+  ];
+
+  // Variables para el carrusel
+  let slideIndex = 0;
+
+  function mostrarSlide(index) {
+    if (index < 0) slideIndex = slides.length - 1;
+    else if (index >= slides.length) slideIndex = 0;
+    else slideIndex = index;
+
+    const slide = slides[slideIndex];
+    imagenActual.src = slide.src;
+    imagenActual.alt = slide.alt;
+  }
+
+  imagenActual.addEventListener('click', () => {
+    slides[slideIndex].onClick();
+  });
+
+  prevBtn.addEventListener('click', () => {
+    mostrarSlide(slideIndex - 1);
+    clearInterval(autoplayInterval);
+  });
+  nextBtn.addEventListener('click', () => {
+    mostrarSlide(slideIndex + 1);
+    clearInterval(autoplayInterval);
+  });
+
+  mostrarSlide(slideIndex);
+
+  // Distancia Haversine
+  function calcularDistancia(lat1, lon1, lat2, lon2) {
+    const R = 6371;
+    const dLat = (lat2 - lat1) * Math.PI / 180;
+    const dLon = (lon2 - lon1) * Math.PI / 180;
+    const a =
+      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+      Math.cos(lat1 * Math.PI / 180) * Math.cos(lat2 * Math.PI / 180) *
+      Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    return R * c;
+  }
+
+  ubicacionBtn.addEventListener('click', () => {
+    if (!navigator.geolocation) {
+      alert('Geolocalización no soportada por este navegador.');
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(pos => {
+      const latUser = pos.coords.latitude;
+      const lonUser = pos.coords.longitude;
+
+      let sitioCercano = null;
+      let minDist = Infinity;
+
+      sitiosTuristicos.forEach(sitio => {
+        const dist = calcularDistancia(latUser, lonUser, sitio.lat, sitio.lon);
+        if (dist < minDist) {
+          minDist = dist;
+          sitioCercano = sitio;
+        }
+      });
+      mensajeTuristicoHeader.innerHTML = ''; // limpia contenido previo
+      mensajeTuristicoHeader.classList.remove('show'); 
+      if (sitioCercano) {
+        mensajeTuristicoHeader.innerHTML = `
+          <div>
+            <strong>Sitio cercano:</strong><br>
+            <a href="${sitioCercano.url}#${sitioCercano.ancla}" target="_blank">
+              ${sitioCercano.nombre}
+            </a>
+          </div>
+        `;
+        mensajeTuristicoHeader.classList.add('show');
+        mensajeTuristicoHeader.addEventListener('click', () => {
+        mensajeTuristicoHeader.classList.remove('show');
+        });
+
+      } else {
+        mensajeTuristicoHeader.textContent = 'No se encontró un sitio turístico cercano.';
+        mensajeTuristicoHeader.classList.add('show');
+      }
+    }, err => {
+      alert('Error al obtener ubicación: ' + err.message);
+    });
+  });
+
+  mensajeTuristicoHeader.addEventListener('click', () => {
+    mensajeTuristicoHeader.classList.remove('show');
+  });
+
+  mundoBtn.addEventListener('click', () => {
+    if (menuPaises.style.display === 'block') {
+      menuPaises.style.display = 'none';
+    } else {
+      mostrarMenuPaises();
+      menuPaises.style.display = 'block';
+    }
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!mundoBtn.contains(e.target) && !menuPaises.contains(e.target)) {
+      menuPaises.style.display = 'none';
+    }
+  });
+
+ const paises = [
+    { nombre: 'México', url: '/paises/mexico.html' },
+    { nombre: 'Argentina', url: '/paises/argentina.html' },
+    { nombre: 'Chile', url: '/paises/chile.html' },
+    { nombre: 'Estados Unidos', url: '/paises/usa.html' },
+    { nombre: 'Canadá', url: '/paises/canada.html' },
+    { nombre: 'Francia', url: '/paises/french.html' },
+  ];
+
+  function mostrarMenuPaises() {
+    menuPaises.innerHTML = '';
+    paises.forEach(pais => {
+      const btn = document.createElement('button');
+      btn.textContent = pais.nombre;
+      btn.addEventListener('click', () => {
+        window.location.href = pais.url;
+      });
+      menuPaises.appendChild(btn);
+    });
+  }
+
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      loader.style.display = 'none';
+    }, 1500);
+  });
+
+  // AUTOPLAY (único, no duplicado)
+  let autoplayInterval = setInterval(() => {
+    mostrarSlide(slideIndex + 1);
+  }, 4000);
+</script>
+  <footer>
+    <p>&copy; 2025 ADARA - Todos los derechos reservados.</p>
+  </footer>
+</body>
+</html>

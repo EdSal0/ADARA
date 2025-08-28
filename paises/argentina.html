@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="assets/argentina.ico" />
+  <link rel="stylesheet" href="style.css">
+  <title>Argentina</title>
+</head>
+<body>
+
+<header>
+  <button id="logo" title="Ir a inicio" aria-label="Ir a inicio" onclick="window.location.href='../index.html'">
+
+    <img src="https://github.com/EdSal0/images/raw/c2e10e2a5f9b40257387fc1b7865b16ce2395c45/logo.ico" alt="Logo" />
+    ADARA
+  </button>
+  <nav class="futuristic-menu">
+    <div class="dropdown">
+      <button id="mundoBtn" title="Seleccionar país">🌐 País</button>
+      <div id="menuPaises" class="dropdown-content"></div>
+    </div>
+    <div id="mensajeTuristicoHeader" title="Haz clic para ver más"></div>
+  </nav>
+</header>
+
+<main>
+  <h1>ARGENTINA</h1>
+  <p>
+    Argentina combina una intensa vida urbana, legado histórico y una naturaleza imponente.
+    Desde el Obelisco en Buenos Aires hasta el Monumento a la Bandera en Rosario y las Cataratas del Iguazú,
+    su patrimonio cultural y paisajístico la convierte en un destino inolvidable.
+  </p>
+
+  <h2>MONUMENTOS</h2>
+  <p>Algunos de los monumentos y lugares más emblemáticos del país:</p>
+
+  <!-- Obelisco -->
+  <h3 id="obelisco-buenosaires">Obelisco – Buenos Aires</h3>
+  <span style="display: none;">Latitud: -34.6037, Longitud: -58.3816</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/ObeliscoBA2019.jpg" alt="Obelisco de Buenos Aires" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>El <strong>Obelisco</strong> (1936) es el ícono porteño por excelencia, erigido por el cuarto centenario de la primera fundación de la ciudad.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Av. 9 de Julio y Av. Corrientes, Centro, Buenos Aires.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p><strong>Fotografías</strong> y paseo por 9 de Julio; <strong>teatros y cafés</strong> sobre Corrientes; <strong>eventos</strong> y celebraciones públicas.</p>
+  <h4>Horario de visita</h4>
+  <p>Espacio público, 24/7.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Respeta señalización y mobiliario urbano; no trepar ni rayar.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Obelisco%20Buenos%20Aires&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Casa Rosada -->
+  <h3 id="casa-rosada">Casa Rosada – Buenos Aires</h3>
+  <span style="display: none;">Latitud: -34.6081, Longitud: -58.3702</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/72/Casa_Rosada_Buenos_Aires.jpg" alt="Casa Rosada" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>La <strong>Casa Rosada</strong> es la sede del Poder Ejecutivo argentino y un emblema histórico frente a Plaza de Mayo.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Balcarce 50, Plaza de Mayo, Buenos Aires.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p><strong>Recorrer Plaza de Mayo</strong>, visitar el <strong>Museo Casa Rosada</strong> y tomar fotos de su fachada.</p>
+  <h4>Horario de visita</h4>
+  <p>Museo: fines de semana y feriados (consulta horarios oficiales).</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Sitio gubernamental: respeta controles y áreas restringidas.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Casa%20Rosada%20Buenos%20Aires&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Monumento a la Bandera -->
+  <h3 id="monumento-bandera">Monumento a la Bandera – Rosario</h3>
+  <span style="display: none;">Latitud: -32.9496, Longitud: -60.6305</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0e/Monumento_a_la_Bandera_-_Rosario.jpg" alt="Monumento a la Bandera en Rosario" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Complejo monumental que conmemora la creación de la bandera argentina por Manuel Belgrano.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Santa Fe 581, Rosario, Santa Fe.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p><strong>Subir al mirador</strong>, recorrer galerías y visitar el propileo.</p>
+  <h4>Horario de visita</h4>
+  <p>Consulta horarios del mirador y espacios interiores.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>No rayar ni trepar; respeta el patrimonio y áreas señalizadas.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Monumento%20a%20la%20Bandera%20Rosario&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Floralis Genérica -->
+  <h3 id="floralis">Floralis Genérica – Buenos Aires</h3>
+  <span style="display: none;">Latitud: -34.5889, Longitud: -58.3925</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Floralis_Generica_Buenos_Aires.jpg" alt="Floralis Genérica" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Escultura metálica de 20+ metros con pétalos que se abren y cierran, obra de Eduardo Catalano.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Plaza de las Naciones Unidas, Recoleta, Buenos Aires.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p><strong>Fotografías</strong> y paseo por parques de Recoleta.</p>
+  <h4>Horario de visita</h4>
+  <p>Espacio público al aire libre.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>No trepar a la escultura ni dañar el césped y senderos.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Floralis%20Generica%20Buenos%20Aires&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Catedral Metropolitana -->
+  <h3 id="catedral-bsas">Catedral Metropolitana – Buenos Aires</h3>
+  <span style="display: none;">Latitud: -34.6085, Longitud: -58.3730</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/03/Catedral_Metropolitana_Buenos_Aires.jpg" alt="Catedral Metropolitana de Buenos Aires" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Principal templo católico de la ciudad; guarda el mausoleo del Gral. San Martín.</p>
+  <h4>¿Dónde está?</h4>
+  <p>San Martín 27, frente a Plaza de Mayo.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p><strong>Visitar el interior</strong>, asistir a misa y ver su arquitectura neoclásica.</p>
+  <h4>Horario de visita</h4>
+  <p>Todos los días (ver horarios de culto y visitas).</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Templo activo: silencio, no flash y vestir de forma adecuada.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Catedral%20Metropolitana%20Buenos%20Aires&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Teatro Colón -->
+  <h3 id="teatro-colon">Teatro Colón – Buenos Aires</h3>
+  <span style="display: none;">Latitud: -34.6019, Longitud: -58.3831</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/45/Teatro_Colon_Buenos_Aires.jpg" alt="Teatro Colón" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Uno de los teatros líricos más prestigiosos del mundo por su acústica y arquitectura.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Cerrito 628, Buenos Aires.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p><strong>Visitas guiadas</strong>, <strong>ópera</strong>, ballet y conciertos.</p>
+  <h4>Horario de visita</h4>
+  <p>Según programación y tours diarios.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Respetar normas del teatro y horarios de función.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Teatro%20Colon%20Buenos%20Aires&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Monumento al Gral. San Martín -->
+  <h3 id="san-martin">Monumento al General San Martín – Buenos Aires</h3>
+  <span style="display: none;">Latitud: -34.5922, Longitud: -58.3757</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/06/Monumento_a_San_Mart%C3%ADn_Buenos_Aires.jpg" alt="Monumento al General San Martín" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Conjunto escultórico que homenajea al Libertador de Argentina, Chile y Perú.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Plaza San Martín, Retiro, Buenos Aires.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p><strong>Paseo</strong> por la plaza, fotografías y recorridos por el casco histórico.</p>
+  <h4>Horario de visita</h4>
+  <p>Espacio público, 24/7.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>No trepar ni dañar la escultura; mantener el espacio limpio.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Plaza%20San%20Mart%C3%ADn%20Buenos%20Aires%20Monumento%20a%20San%20Mart%C3%ADn&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Cataratas del Iguazú (sitio natural emblemático) -->
+  <h3 id="iguazu">Cataratas del Iguazú – Misiones</h3>
+  <span style="display: none;">Latitud: -25.6953, Longitud: -54.4367</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Cataratas_del_Iguaz%C3%BA_-_Devil%27s_Throat%2C_August_2013.jpg" alt="Cataratas del Iguazú" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Maravilla natural del mundo con más de 250 saltos de agua dentro del Parque Nacional Iguazú.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Puerto Iguazú, Misiones.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p><strong>Pasarelas</strong> Garganta del Diablo, <strong>paseos náuticos</strong> y senderos interpretativos.</p>
+  <h4>Horario de visita</h4>
+  <p>Todos los días (cierra al atardecer). Revisar temporada y caudal.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Área protegida: no alimentar fauna, no salir de pasarelas, no fumar.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Cataratas%20del%20Iguaz%C3%BA%20Argentina&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+</main>
+
+<script>
+  // Mostrar/ocultar menú de países
+  mundoBtn.addEventListener('click', () => {
+    if (menuPaises.style.display === 'block') {
+      menuPaises.style.display = 'none';
+    } else {
+      mostrarMenuPaises();
+      menuPaises.style.display = 'block';
+    }
+  });
+
+  // Cerrar menú al hacer clic afuera
+  document.addEventListener('click', (e) => {
+    if (!mundoBtn.contains(e.target) && !menuPaises.contains(e.target)) {
+      menuPaises.style.display = 'none';
+    }
+  });
+
+  // Lista de países
+  const paises = [
+    { nombre: 'México', url: '/paises/mexico.html' },
+    { nombre: 'Argentina', url: '/paises/argentina.html' },
+    { nombre: 'Chile', url: '/paises/chile.html' },
+    { nombre: 'Estados Unidos', url: '/paises/usa.html' },
+    { nombre: 'Canadá', url: '/paises/canada.html' },
+    { nombre: 'Francia', url: '/paises/french.html' },
+  ];
+
+  function mostrarMenuPaises() {
+    menuPaises.innerHTML = '';
+    paises.forEach(pais => {
+      const btn = document.createElement('button');
+      btn.textContent = pais.nombre;
+      btn.addEventListener('click', () => {
+        window.location.href = pais.url;
+      });
+      menuPaises.appendChild(btn);
+    });
+  }
+</script>
+
+<footer>
+  <p>&copy; 2025 ADARA - Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="assets/chile.ico" />
+  <link rel="stylesheet" href="style.css">
+  <title>Chile</title>
+</head>
+<body>
+
+<header>
+  <button id="logo" title="Ir a inicio" aria-label="Ir a inicio" onclick="window.location.href='../index.html'">
+
+    <img src="https://github.com/EdSal0/images/raw/c2e10e2a5f9b40257387fc1b7865b16ce2395c45/logo.ico" alt="Logo" />
+    ADARA
+  </button>
+  <nav class="futuristic-menu">
+    <div class="dropdown">
+      <button id="mundoBtn" title="Seleccionar país">🌐 País</button>
+      <div id="menuPaises" class="dropdown-content"></div>
+    </div>
+    <div id="mensajeTuristicoHeader" title="Haz clic para ver más"></div>
+  </nav>
+</header>
+
+<main>
+  <h1>CHILE</h1>
+  <p>
+    Chile sorprende por sus extremos: el desierto de Atacama al norte, la cordillera y
+    una capital vibrante al centro, y la Patagonia glacial al sur. Estos son algunos
+    de sus monumentos y lugares imperdibles.
+  </p>
+
+  <h2>MONUMENTOS</h2>
+  <p>Selección de norte, centro y sur (con mapa en cada sección):</p>
+
+  <!-- Mano del Desierto (Norte) -->
+  <h3 id="mano-desierto">La Mano del Desierto – Antofagasta</h3>
+  <span style="display: none;">Latitud: -24.1871, Longitud: -70.1789</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Hand_of_the_Desert.jpg" alt="La Mano del Desierto" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Escultura monumental de Mario Irarrázabal emergiendo del desierto de Atacama.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Ruta 5 Panamericana, a ~75 km al sur de Antofagasta.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p><strong>Fotografías</strong> y contemplación del paisaje árido; astroturismo nocturno.</p>
+  <h4>Horario de visita</h4>
+  <p>Espacio abierto, 24/7.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>No rayar ni dejar basura; respeta el entorno desértico.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=La%20Mano%20del%20Desierto%20Antofagasta&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Valle de la Luna (Norte) -->
+  <h3 id="valle-luna">Valle de la Luna – San Pedro de Atacama</h3>
+  <span style="display: none;">Latitud: -22.9130, Longitud: -68.2215</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/5/5f/Valle_de_la_Luna_Atacama.jpg" alt="Valle de la Luna, Atacama" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Área de paisajes geológicos únicos, dunas y formaciones pétreas modeladas por el viento.</p>
+  <h4>¿Dónde está?</h4>
+  <p>A pocos kilómetros de San Pedro de Atacama.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p>Atardeceres, trekking suave y observación astronómica.</p>
+  <h4>Horario de visita</h4>
+  <p>Acceso diario; amanecer/atardecer son los mejores momentos.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>No salirse de senderos; no remover rocas o arena.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Valle%20de%20la%20Luna%20San%20Pedro%20de%20Atacama&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Palacio de La Moneda (Centro) -->
+  <h3 id="la-moneda">Palacio de La Moneda – Santiago</h3>
+  <span style="display: none;">Latitud: -33.4429, Longitud: -70.6539</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/14/Palacio_de_La_Moneda%2C_Santiago_de_Chile.jpg" alt="Palacio de La Moneda" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Sede del Poder Ejecutivo de Chile y obra maestra neoclásica de Joaquín Toesca.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Moneda s/n, entre Teatinos y Morandé, Santiago Centro.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p>Ver el <strong>Cambio de Guardia</strong>, visitar el <strong>Centro Cultural La Moneda</strong>.</p>
+  <h4>Horario de visita</h4>
+  <p>Exteriores 24/7; centro cultural con horarios propios.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Respeta protocolos de seguridad y áreas restringidas.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Palacio%20de%20La%20Moneda%20Santiago&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Cerro San Cristóbal (Centro) -->
+  <h3 id="san-cristobal">Cerro San Cristóbal – Santiago</h3>
+  <span style="display: none;">Latitud: -33.4406, Longitud: -70.6389</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Cerro_San_Cristóbal_Santiago.jpg" alt="Cerro San Cristóbal" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Cerro icónico del Parque Metropolitano con miradores y santuario.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Providencia y Recoleta, Santiago.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p>Subir en funicular/teleférico, miradores, zoológico y áreas verdes.</p>
+  <h4>Horario de visita</h4>
+  <p>Funicular/teleférico con horarios; parque desde temprano hasta el anochecer.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>No dejar residuos; respeta senderos y flora.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Cerro%20San%20Crist%C3%B3bal%20Santiago&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Plaza de Armas (Centro) -->
+  <h3 id="plaza-armas">Plaza de Armas – Santiago</h3>
+  <span style="display: none;">Latitud: -33.4372, Longitud: -70.6506</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Plaza_de_Armas_Santiago.jpg" alt="Plaza de Armas de Santiago" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Núcleo histórico de la ciudad, rodeado por la Catedral Metropolitana y edificios patrimoniales.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Centro Histórico, Santiago.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p>Recorrer la catedral, museos cercanos y el barrio cívico.</p>
+  <h4>Horario de visita</h4>
+  <p>Espacio público, 24/7.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Cuidar el mobiliario urbano y respetar actividades culturales.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Plaza%20de%20Armas%20Santiago%20de%20Chile&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Torres del Paine (Sur) -->
+  <h3 id="torres-paine">Parque Nacional Torres del Paine – Magallanes</h3>
+  <span style="display: none;">Latitud: -50.9423, Longitud: -72.9560</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Torres_del_Paine%2C_Chile.jpg" alt="Torres del Paine" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Área protegida con montañas icónicas, lagos turquesa y glaciares.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Región de Magallanes, Patagonia chilena.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p>Trekking circuito W, miradores, navegación lago Grey.</p>
+  <h4>Horario de visita</h4>
+  <p>Abierto todo el año; mejor temporada de octubre a abril.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Senderos demarcados, no alimentar fauna y llevarse los residuos.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Parque%20Nacional%20Torres%20del%20Paine&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Rapa Nui / Moái (Isla de Pascua) -->
+  <h3 id="rapa-nui">Ahu Tongariki (Moái) – Rapa Nui</h3>
+  <span style="display: none;">Latitud: -27.1257, Longitud: -109.2767</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Ahu_Tongariki_%28Rapa_Nui%29.jpg" alt="Ahu Tongariki, Rapa Nui" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Plataforma ceremonial con 15 moái, símbolo de la cultura rapanui.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Parque Nacional Rapa Nui, Isla de Pascua.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p>Amanecer en Tongariki, recorrer sitios arqueológicos y museo local.</p>
+  <h4>Horario de visita</h4>
+  <p>Ingreso con ticket del parque; horarios según temporada.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>No tocar ni subir a los ahu; respetar normas del parque y comunidad.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Ahu%20Tongariki%20Rapa%20Nui&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+</main>
+
+<script>
+  // Mostrar/ocultar menú de países
+  mundoBtn.addEventListener('click', () => {
+    if (menuPaises.style.display === 'block') {
+      menuPaises.style.display = 'none';
+    } else {
+      mostrarMenuPaises();
+      menuPaises.style.display = 'block';
+    }
+  });
+
+  // Cerrar menú al hacer clic afuera
+  document.addEventListener('click', (e) => {
+    if (!mundoBtn.contains(e.target) && !menuPaises.contains(e.target)) {
+      menuPaises.style.display = 'none';
+    }
+  });
+
+  // Lista de países
+  const paises = [
+    { nombre: 'México', url: '/paises/mexico.html' },
+    { nombre: 'Argentina', url: '/paises/argentina.html' },
+    { nombre: 'Chile', url: '/paises/chile.html' },
+    { nombre: 'Estados Unidos', url: '/paises/usa.html' },
+    { nombre: 'Canadá', url: '/paises/canada.html' },
+    { nombre: 'Francia', url: '/paises/french.html' },
+  ];
+
+  function mostrarMenuPaises() {
+    menuPaises.innerHTML = '';
+    paises.forEach(pais => {
+      const btn = document.createElement('button');
+      btn.textContent = pais.nombre;
+      btn.addEventListener('click', () => {
+        window.location.href = pais.url;
+      });
+      menuPaises.appendChild(btn);
+    });
+  }
+</script>
+
+<footer>
+  <p>&copy; 2025 ADARA - Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>

@@ -1,0 +1,51 @@
+[
+  {
+    "ciudad": "cdmx",
+    "pais": "mexico",
+    "nombre": "Castillo de Chapultepec",
+    "direccion": "Bosque de Chapultepec",
+    "tipo": "Histórico",
+    "lat": 19.4204,
+    "lng": -99.1819
+  },
+  {
+    "ciudad": "cdmx",
+    "pais": "mexico",
+    "nombre": "Museo Frida Kahlo",
+    "direccion": "Londres 247, Coyoacán",
+    "tipo": "Museo",
+    "lat": 19.3556,
+    "lng": -99.1621
+  },
+
+  {
+    "ciudad": "parís",
+    "pais": "francia",
+    "nombre": "Torre Eiffel",
+    "direccion": "Champ de Mars",
+    "tipo": "Monumento",
+    "lat": 48.8584,
+    "lng": 2.2945
+  },
+
+  {
+    "ciudad": "parís",
+    "pais": "francia",
+    "nombre": "Museo del Louvre",
+    "direccion": "Rue de Rivoli",
+    "tipo": "Museo",
+    "lat": 48.8606,
+    "lng": 2.3376
+  },
+
+  {
+    "ciudad": "roma",
+    "pais": "italia",
+    "nombre": "Coliseo Romano",
+    "direccion": "Piazza del Colosseo",
+    "tipo": "Histórico",
+    "lat": 41.8902,
+    "lng": 12.4922
+  }
+
+]

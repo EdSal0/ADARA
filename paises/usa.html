@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="shortcut icon" href="assets/usa.ico" />
+  <link rel="stylesheet" href="style.css">
+  <title>Estados Unidos</title>
+</head>
+<body>
+
+<header>
+  <button id="logo" title="Ir a inicio" aria-label="Ir a inicio" onclick="window.location.href='../index.html'">
+
+    <img src="https://github.com/EdSal0/images/raw/c2e10e2a5f9b40257387fc1b7865b16ce2395c45/logo.ico" alt="Logo" />
+    ADARA
+  </button>
+  <nav class="futuristic-menu">
+    <div class="dropdown">
+      <button id="mundoBtn" title="Seleccionar país">🌐 País</button>
+      <div id="menuPaises" class="dropdown-content"></div>
+    </div>
+    <div id="mensajeTuristicoHeader" title="Haz clic para ver más"></div>
+  </nav>
+</header>
+
+<main>
+  <h1>ESTADOS UNIDOS</h1>
+  <p>
+    Estados Unidos combina grandes urbes, maravillas naturales y monumentos históricos.  
+    Desde la Estatua de la Libertad hasta el Gran Cañón y el Capitolio, hay mucho por explorar.
+  </p>
+
+  <h2>MONUMENTOS</h2>
+  <p>Algunos de los más representativos del país:</p>
+
+  <!-- Estatua de la Libertad -->
+  <h3 id="libertad">Estatua de la Libertad – Nueva York</h3>
+  <span style="display: none;">Latitud: 40.6892, Longitud: -74.0445</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/a/a1/Statue_of_Liberty_7.jpg" alt="Estatua de la Libertad" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Monumento icónico que simboliza libertad y democracia, donada por Francia en 1886.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Liberty Island, Nueva York, NY.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p><strong>Visitas guiadas</strong>, subir a la corona, recorrer isla y museo.</p>
+  <h4>Horario de visita</h4>
+  <p>Consulta horarios oficiales; generalmente abierto todo el día.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Seguridad estricta; no arrojar basura y respetar áreas de acceso.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Statue%20of%20Liberty&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Capitolio -->
+  <h3 id="capitolio">Capitolio de Estados Unidos – Washington D.C.</h3>
+  <span style="display: none;">Latitud: 38.8899, Longitud: -77.0091</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/9/92/United_States_Capitol_-_west_front.jpg" alt="Capitolio" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Edificio sede del Congreso de EE.UU., símbolo de democracia y gobierno federal.</p>
+  <h4>¿Dónde está?</h4>
+  <p>East Capitol St NE & First St SE, Washington, D.C.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p>Recorridos guiados, visitar el centro de visitantes, fotografías exteriores.</p>
+  <h4>Horario de visita</h4>
+  <p>Consulta tours oficiales y horarios de seguridad.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Prohibido ingresar con mochilas grandes o bebidas; respetar áreas restringidas.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=United%20States%20Capitol&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Gran Cañón -->
+  <h3 id="gran-canon">Gran Cañón – Arizona</h3>
+  <span style="display: none;">Latitud: 36.1069, Longitud: -112.1129</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Grand_Canyon_view_from_Pima_Point_2010.jpg" alt="Gran Cañón" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Formación geológica gigantesca de millones de años con paisajes impresionantes.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Parque Nacional Gran Cañón, Arizona.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p>Trekking, miradores, rafting en el río Colorado y paseos panorámicos.</p>
+  <h4>Horario de visita</h4>
+  <p>Abierto todo el año, mejores épocas primavera y otoño.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Senderos señalizados, no arrojar basura, respetar fauna y flora.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Grand%20Canyon&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Golden Gate -->
+  <h3 id="golden-gate">Puente Golden Gate – San Francisco</h3>
+  <span style="display: none;">Latitud: 37.8199, Longitud: -122.4783</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/GoldenGateBridge-001.jpg" alt="Puente Golden Gate" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Puente colgante icónico que conecta San Francisco con Marin County, símbolo de ingeniería.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Golden Gate, San Francisco, CA.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p>Paseos a pie, fotografía, ciclismo y miradores.</p>
+  <h4>Horario de visita</h4>
+  <p>24/7 en accesos peatonales y vehiculares.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>Usar senderos peatonales, respetar tráfico y normas de seguridad.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Golden%20Gate%20Bridge&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+  <!-- Mount Rushmore -->
+  <h3 id="mount-rushmore">Monte Rushmore – Dakota del Sur</h3>
+  <span style="display: none;">Latitud: 43.8791, Longitud: -103.4591</span>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Mount_Rushmore_National_Memorial.jpg" alt="Monte Rushmore" width="500" />
+  <h4>¿Qué es?</h4>
+  <p>Escultura en roca de 18 metros con los rostros de cuatro presidentes emblemáticos.</p>
+  <h4>¿Dónde está?</h4>
+  <p>Parque Nacional Monte Rushmore, Dakota del Sur.</p>
+  <h4>¿Qué puedes hacer ahí?</h4>
+  <p>Visitar miradores, centro de visitantes y senderos interpretativos.</p>
+  <h4>Horario de visita</h4>
+  <p>Abierto todo el año, consultar horarios de centro de visitantes.</p>
+  <h4>Guía de Cuidado y Respeto</h4>
+  <p>No acercarse a áreas restringidas ni dañar instalaciones.</p>
+  <div class="mapa-container">
+    <iframe src="https://www.google.com/maps?q=Mount%20Rushmore&output=embed" width="600" height="400" loading="lazy" allowfullscreen></iframe>
+  </div>
+  <br><br>
+
+</main>
+
+<script>
+  // Mostrar/ocultar menú de países
+  mundoBtn.addEventListener('click', () => {
+    if (menuPaises.style.display === 'block') {
+      menuPaises.style.display = 'none';
+    } else {
+      mostrarMenuPaises();
+      menuPaises.style.display = 'block';
+    }
+  });
+
+  // Cerrar menú al hacer clic afuera
+  document.addEventListener('click', (e) => {
+    if (!mundoBtn.contains(e.target) && !menuPaises.contains(e.target)) {
+      menuPaises.style.display = 'none';
+    }
+  });
+
+  // Lista de países
+  const paises = [
+    { nombre: 'México', url: '/paises/mexico.html' },
+    { nombre: 'Argentina', url: '/paises/argentina.html' },
+    { nombre: 'Chile', url: '/paises/chile.html' },
+    { nombre: 'Estados Unidos', url: '/paises/usa.html' },
+    { nombre: 'Canadá', url: '/paises/canada.html' },
+    { nombre: 'Francia', url: '/paises/french.html' },
+  ];
+
+  function mostrarMenuPaises() {
+    menuPaises.innerHTML = '';
+    paises.forEach(pais => {
+      const btn = document.createElement('button');
+      btn.textContent = pais.nombre;
+      btn.addEventListener('click', () => {
+        window.location.href = pais.url;
+      });
+      menuPaises.appendChild(btn);
+    });
+  }
+</script>
+
+<footer>
+  <p>&copy; 2025 ADARA - Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>
